@@ -17,7 +17,7 @@ int main()
 	
 	tabla<< "\t"<< tiempo << "\t\t" << analitico << "\t\t" << aprox << "\t\t" << error << "%\n";
 	
-	for(tiempo=0+incremento; ; tiempo += incremento){
+	for(tiempo=incremento; ; tiempo += incremento){
 	
 		analitico = 9.8*(m/c)*(1-exp(-(c/m)*tiempo));
 		analitico = truncf(analitico*100)/100;
