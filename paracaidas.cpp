@@ -1,41 +1,37 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <fstream>
 
 using namespace std;
 
 int main()
-{	
+{			
 	
-	double v, t;
-	double m = 68.1*2, c = 12.5;
 	fstream tabla;
 
 	tabla.open("data.txt", fstream::out);
 	
-	double a, b, b2 = -1, e, vel_const = 0.001, inc = 0.1;//INCREMENTO
-	double v0 = 0, t0 = 0;
+	double tiempo = 0, analitico = 0, aprox = 0, error = 0, incremento = 1;
+	double v0 = 0, m = 68.1*2, c = 12.5;
 	int pasos =0;
-	for(float t=0; ; t += inc){
-		a = 9.8*(m/c)*(1-exp(-(c/m)*t));
-		tabla<< "\t"<< t << "\t\t" << a;
-		if(t == 0){
-			b = 0; e = 0; 
-		}
-		else{
-			b = v0 + (9.8-(c/m*v0))*(inc);
-			e = ((b-a)/a)*100;
-		}
-		v0 = b;
-		tabla << "\t\t" << b;		
-		tabla << "\t\t" << e << " %\n";
-		if(b2 == b ){cerr<< "ok";
-			tabla<< "\t"<< t << "\t\t" << a;
-			tabla << "\t\t" << b;		
-			tabla << "\t\t" << e << " dfsdfdf%\n";
-			break;		
-		}
-		b2 = b;
+	
+	tabla<< "\t"<< tiempo << "\t\t" << analitico << "\t\t" << aprox << "\t\t" << error << "%\n";
+	
+	for(tiempo=0+incremento; ; tiempo += incremento){
+	
+		analitico = 9.8*(m/c)*(1-exp(-(c/m)*tiempo));
+		analitico = truncf(analitico*100)/100;
+
+		aprox = aprox + (9.8-(c/m*aprox))*(incremento);
+		aprox = truncf(aprox*100)/100;
+		
+		error = ((aprox-analitico)/analitico)*100;
+                error = truncf(error*1000)/1000;
+                
+		tabla<< "\t"<< tiempo << "\t\t" << analitico << "\t\t" << aprox << "\t\t" << error << "%\n";
+		
+		if(abs(aprox-analitico) == 0) break;	
+		
 		pasos++;
 		cout << "pasos... " << pasos << '\n';
 	}
