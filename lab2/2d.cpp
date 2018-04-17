@@ -1,8 +1,6 @@
 /*
-
 Fx = Fairecos0(CApv) -> v -> v0 ->vx
 Fy = Fairesen0 + mg 
-
 */
 
 #include<iostream>
@@ -13,7 +11,7 @@ using namespace std;
 
 int main()
 {
-	double v0 = 25 , theta = 37, m = 0.1, d = 0.06, c = 0.1, p = 1.225, g = 9.8;
+	double v0 = 250 , theta = 37*3.1415/180, m = 0.1, d = 0.06, c = 0.1, p = 1.225, g = 9.8;
 	double a = 3.1415*(d/2)*(d/2);
 	double ax, ay;
 	double x = 0, y = 0, vx, vy;
