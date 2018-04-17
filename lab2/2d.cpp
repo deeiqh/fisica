@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-	double v0 = 250 , theta = 37*3.1415/180, m = 0.1, d = 0.06, c = 0.1, p = 1.225, g = 9.8;
+	double v0 = 25 , theta = 37*3.1415/180, m = 0.1, d = 0.06, c = 0.1, p = 1.225, g = 9.8;
 	double a = 3.1415*(d/2)*(d/2);
 	double ax, ay;
 	double x = 0, y = 0, vx, vy;
@@ -20,8 +20,8 @@ int main()
 	arch.open("2d.txt", fstream::out);
 	
 	for(double t = 0; t != 30; t++){
-		ax = -0.5/m*c*a*p*v0*v0*cos(theta);
-		ay = -1*( g + (0.5/m*c*a*p*v0*v0*sin(theta)) );
+		ax = -0.5/m*c*a*p*(vx*vx+vy*vy)*cos(theta);
+		ay = -1*( g + (0.5/m*c*a*p*(vx*vx+vy*vy)*sin(theta)) );
 
 		vx = v0*cos(theta) + ax*t;
 		vy = v0*sin(theta) + ay*t;
