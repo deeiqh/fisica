@@ -14,7 +14,7 @@ int main()
 	double v0 = 25 , theta = 37*3.1415/180, m = 0.1, d = 0.06, c = 0.1, p = 1.225, g = 9.8;
 	double a = 3.1415*(d/2)*(d/2);
 	double ax, ay;
-	double x = 0, y = 0, vx, vy;
+	double x = 0, y = 0, vx = 0, vy = 0;
 	
 	fstream arch;
 	arch.open("2d.txt", fstream::out);
