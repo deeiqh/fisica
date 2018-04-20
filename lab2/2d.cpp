@@ -19,7 +19,7 @@ int main()
 	fstream arch;
 	arch.open("2d.txt", fstream::out);
 	
-	for(double t = 0; t != 30; t++){
+	for(double t = 0; t <= 5.7; t += 0.01){
 		ax = -0.5/m*c*a*p*(vx*vx+vy*vy)*cos(theta);
 		ay = -1*( g + (0.5/m*c*a*p*(vx*vx+vy*vy)*sin(theta)) );
 
