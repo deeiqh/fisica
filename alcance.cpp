@@ -27,5 +27,5 @@ int main()
     cout << "tx_persona.txt\n";
     archivo_tren.close();
     cout << "tx_tren.txt\n";    
-    cout << "gnuplot... plot 'tx_persona.txt' using 1:2, 'tx_tren.txt' using 1:2, 'tx_persona.txt' using 1:3" << '\n';
+    cout << "gnuplot... plot 'tx_persona.txt' using 1:2, 'tx_tren.txt' using 1:2, 'tx_persona.txt using 1:3'" << '\n';
 }

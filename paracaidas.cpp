@@ -12,7 +12,7 @@ int main()
 	tabla.open("data.txt", fstream::out);
 	
 	double tiempo = 0, analitico = 0, aprox = 0, error = 0, incremento = 0.1;
-	double v0 = 0, m = 68.1, c = 12.5*2;
+	double v0 = 0, m = 68.1, c = 12.5/2;
 	int pasos =0;
 	
 	tabla<< "\t"<< tiempo << "\t\t" << analitico << "\t\t" << aprox << "\t\t" << error << "%\n";
@@ -29,8 +29,11 @@ int main()
 		
 		pasos++;
 		if(abs(aprox-analitico) <= 0.00001) break;				
-	}
-	
+	}/*
+	normal v = 53.39
+	masa =2m v = 106.78
+	masa m/2 v = 26.69
+	c c/2 v = 106.78*/
 	cout << "pasos... " << pasos << '\n';
 	tabla.close();
 	return 0;
